@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Vikul Tyagi - Flutter Developer Portfolio</title>
+  <meta name="description" content="Portfolio of Vikul Tyagi - Flutter Developer with 1 year experience specializing in Lead Management Systems">
+  <meta name="keywords" content="Flutter Developer, Mobile App Development, Lead Management, Vikul Tyagi">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+  <!-- Vendor CSS Files from CDN -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <style>
+    /* ===== FILE: main.css - Custom Styles ===== */
+    :root {
+      --default-font: "Roboto", system-ui, -apple-system, sans-serif;
+      --heading-font: "Mulish", sans-serif;
+      --nav-font: "Raleway", sans-serif;
+      --background-color: #141414;
+      --default-color: #d9d9d9;
+      --heading-color: #ededed;
+      --accent-color: #ff4d4f;
+      --surface-color: #1c1c1c;
+      --contrast-color: #ffffff;
+      --nav-color: #d9d9d9;
+      --nav-hover-color: #ff4d4f;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: var(--default-font);
+      color: var(--default-color);
+      background-color: var(--background-color);
+      line-height: 1.6;
+    }
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    a:hover {
+      color: color-mix(in srgb, var(--accent-color), transparent 25%);
+    }
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--heading-color);
+      font-family: var(--heading-font);
+    }
+    /* ===== HEADER ===== */
+    .header {
+      background: rgba(20, 20, 20, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+      padding: 15px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo {
+      font-family: var(--heading-font);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+    .navmenu ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+    }
+    .navmenu a {
+      color: var(--nav-color);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+    .navmenu a:hover, .navmenu a.active {
+      color: var(--nav-hover-color);
+    }
+    .btn-getstarted {
+      background: var(--accent-color);
+      color: white;
+      padding: 10px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    .btn-getstarted:hover {
+      background: #d63d3f;
+      transform: translateY(-2px);
+    }
+    /* ===== HERO SECTION ===== */
+    .hero {
+      background: linear-gradient(135deg, #141414 0%, #1a1a2e 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 80px;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('assets/images/img1.jpg') center/cover no-repeat;
+      opacity: 0.1;
+      z-index: 0;
+    }
+    .hero .container {
+      position: relative;
+      z-index: 1;
+    }
+    .hero h2 {
+      font-size: 48px;
+      color: white;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+    .hero .typed {
+      color: var(--accent-color);
+      font-size: 32px;
+      font-weight: 600;
+    }
+    .social-links {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 20px;
+      transition: all 0.3s;
+    }
+    .social-links a:hover {
+      background: var(--accent-color);
+      transform: translateY(-5px);
+    }
+    /* ===== ABOUT SECTION ===== */
+    .about {
+      padding: 100px 0;
+      background: #0a0a0a;
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .section-title .subtitle {
+      color: var(--accent-color);
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+    }
+    .section-title h2 {
+      font-size: 42px;
+      font-weight: 700;
+      margin: 15px 0;
+    }
+    .section-title p {
+      font-size: 18px;
+      color: rgba(217, 217, 217, 0.7);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .profile-card {
+      background: var(--surface-color);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+      text-align: center;
+    }
+    .profile-avatar {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin: 0 auto 30px;
+      overflow: hidden;
+      border: 5px solid var(--accent-color);
+    }
+    .profile-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .profile-card h3 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .role {
+      color: var(--accent-color);
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      display: block;
+    }
+    .profile-stats {
+      display: flex;
+      justify-content: space-around;
+      margin: 30px 0;
+      padding: 30px 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .stat-item h4 {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--accent-color);
+    }
+    .stat-item p {
+      color: #999;
+      margin: 0;
+    }
+    .btn-primary {
+      background: var(--accent-color);
+      color: white;
+      padding: 12px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      display: inline-block;
+      margin: 10px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    .btn-primary:hover {
+      background: #d63d3f;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255, 77, 79, 0.3);
+    }
+    .bio-section h2 {
+      font-size: 36px;
+      margin-bottom: 24px;
+    }
+    .bio-section p {
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin: 40px 0;
+    }
+    .detail-item {
+      background: var(--surface-color);
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      transition: all 0.3s;
+    }
+    .detail-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(255, 77, 79, 0.2);
+    }
+    .detail-item i {
+      font-size: 32px;
+      color: var(--accent-color);
+    }
+    .detail-content span {
+      display: block;
+      color: #999;
+      font-size: 14px;
+    }
+    .detail-content strong {
+      color: white;
+      font-size: 16px;
+    }
+    /* ===== SKILLS ===== */
+    .skills-showcase h3 {
+      font-size: 28px;
+      margin-bottom: 32px;
+    }
+    .skill-item {
+      margin-bottom: 28px;
+    }
+    .skill-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .skill-name {
+      font-weight: 600;
+      color: white;
+    }
+    .skill-percent {
+      color: var(--accent-color);
+      font-weight: 600;
+    }
+    .progress {
+      height: 10px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.1);
+    }
+    .progress-bar {
+      background: linear-gradient(90deg, var(--accent-color), #ff6b6b);
+      border-radius: 10px;
+      animation: progressAnimation 2s ease-in-out;
+    }
+    @keyframes progressAnimation {
+      from { width: 0; }
+    }
+    /* ===== PROJECTS SECTION ===== */
+    .projects {
+      padding: 100px 0;
+      background: #0a0a0a;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+    .project-card {
+      background: var(--surface-color);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(255, 77, 79, 0.2);
+    }
+    .project-image {
+      height: 200px;
+      width: 100%;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, rgba(255, 77, 79, 0.9), rgba(255, 77, 79, 0.7));
+      opacity: 0;
+      transition: opacity 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .project-card:hover .project-overlay {
+      opacity: 1;
+    }
+    .project-content {
+      padding: 30px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: white;
+    }
+    .project-description {
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 20px;
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+    .project-features {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+    .project-features li {
+      padding: 8px 0;
+      color: rgba(255, 255, 255, 0.7);
+      position: relative;
+      padding-left: 25px;
+    }
+    .project-features li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+    .project-links {
+      display: flex;
+      gap: 15px;
+      margin-top: auto;
+    }
+    .project-link {
+      background: rgba(255, 77, 79, 0.1);
+      color: var(--accent-color);
+      padding: 10px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+      justify-content: center;
+    }
+    .project-link:hover {
+      background: var(--accent-color);
+      color: white;
+      transform: translateY(-3px);
+    }
+    /* ===== FOOTER ===== */
+    .footer {
+      background: #0a0a0a;
+      color: white;
+      padding: 50px 0 20px;
+    }
+    .footer h4 {
+      color: white;
+      margin-bottom: 20px;
+    }
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+    }
+    .footer-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .footer-links a:hover {
+      color: white;
+    }
+    .copyright {
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+    }
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .navmenu ul {
+        flex-direction: column;
+        gap: 15px;
+      }
+      .hero h2 {
+        font-size: 32px;
+      }
+      .hero .typed {
+        font-size: 24px;
+      }
+      .section-title h2 {
+        font-size: 32px;
+      }
+      .details-grid {
+        grid-template-columns: 1fr;
+      }
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      .project-links {
+        flex-direction: column;
+      }
+    }
+    .scroll-top {
+      position: fixed;
+      visibility: hidden;
+      opacity: 0;
+      right: 15px;
+      bottom: 15px;
+      z-index: 99999;
+      background-color: var(--accent-color);
+      width: 40px;
+      height: 40px;
+      border-radius: 4px;
+      transition: all 0.4s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .scroll-top i {
+      font-size: 24px;
+      color: white;
+    }
+    .scroll-top.active {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body class="index-page">
+  <!-- ===== FILE: Header Section ===== -->
+  <header class="header d-flex align-items-center">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+      <a href="#hero" class="logo">Vikul Tyagi</a>
+     
+      <nav class="navmenu d-none d-lg-block">
+        <ul>
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="btn-getstarted" href="#contact">Hire Me</a>
+    </div>
+  </header>
+  <main class="main">
+    <!-- ===== FILE: Hero Section ===== -->
+    <section id="hero" class="hero">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center">
+            <h2>Hi, I'm Vikul Tyagi</h2>
+            <p class="typed">Flutter Developer</p>
+            <div class="social-links">
+              <a href="mailto:vikultyagi745@gmail.com" title="Email"><i class="bi bi-envelope"></i></a>
+              <a href="tel:+917455000576" title="Phone"><i class="bi bi-phone"></i></a>
+              <a href="https://www.linkedin.com/in/vikul-tyagi-82113a223/" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+              <a href="https://github.com/vikul-1" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== FILE: About Section ===== -->
+    <section id="about" class="about">
+      <div class="container section-title" data-aos="fade-up">
+        <span class="subtitle">About Me</span>
+        <h2>Flutter Developer</h2>
+        <p>Passionate about creating beautiful and functional mobile applications with expertise in Lead Management Systems</p>
+      </div>
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-5">
+          <!-- Profile Card -->
+          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="150">
+            <div class="profile-card">
+              <div class="profile-avatar">
+                <img src="assets/images/img2.jpg" alt="Vikul Tyagi">
+              </div>
+              <h3>Vikul Tyagi</h3>
+              <span class="role">Flutter Developer</span>
+              <div class="profile-stats">
+                <div class="stat-item">
+                  <h4>1+</h4>
+                  <p>Year Experience</p>
+                </div>
+                <div class="stat-item">
+                  <h4>10+</h4>
+                  <p>Projects</p>
+                </div>
+              </div>
+              <div class="profile-actions">
+                <a href="mailto:vikultyagi745@gmail.com" class="btn-primary"><i class="bi bi-envelope"></i> Contact Me</a>
+              </div>
+            </div>
+          </div>
+          <!-- About Content -->
+          <div class="col-lg-8" data-aos="fade-left" data-aos-delay="200">
+            <div class="content-wrapper">
+              <div class="bio-section">
+               <h2>About Me</h2>
+                <p>
+                  I am a passionate Flutter Developer with hands-on experience in building modern,
+                  fast, and scalable mobile applications. I specialize in Lead Management Systems,
+                  CRM-based apps, and performance-optimized user interfaces. I enjoy turning ideas
+                  into smooth, functional, and beautiful mobile experiences.
+                </p>
+                <p>
+                  With strong knowledge of Flutter, Firebase, REST APIs, and UI/UX practices,
+                  I focus on writing clean, maintainable code and delivering production-ready apps.
+                </p>
+              </div>
+              <!-- Contact Details Grid -->
+              <div class="details-grid">
+                <div class="detail-item" data-aos="fade-up">
+                  <i class="bi bi-briefcase"></i>
+                  <div class="detail-content">
+                    <span>Experience</span>
+                    <strong>1+ Year</strong>
+                  </div>
+                </div>
+                <div class="detail-item" data-aos="fade-up" data-aos-delay="100">
+                  <i class="bi bi-code-square"></i>
+                  <div class="detail-content">
+                    <span>Specialization</span>
+                    <strong>Flutter Development</strong>
+                  </div>
+                </div>
+                <div class="detail-item" data-aos="fade-up" data-aos-delay="150">
+                  <i class="bi bi-envelope"></i>
+                  <div class="detail-content">
+                    <span>Email</span>
+                    <strong>vikultyagi745@gmail.com</strong>
+                  </div>
+                </div>
+                <div class="detail-item" data-aos="fade-up" data-aos-delay="200">
+                  <i class="bi bi-phone"></i>
+                  <div class="detail-content">
+                    <span>Phone</span>
+                    <strong>+91 7455000576</strong>
+                  </div>
+                </div>
+                <div class="detail-item" data-aos="fade-up" data-aos-delay="250">
+                  <i class="bi bi-geo-alt"></i>
+                  <div class="detail-content">
+                    <span>Location</span>
+                    <strong>Noida, Uttar Pradesh</strong>
+                  </div>
+                </div>
+                <div class="detail-item" data-aos="fade-up" data-aos-delay="300">
+                  <i class="bi bi-diagram-3"></i>
+                  <div class="detail-content">
+                    <span>Focus Area</span>
+                    <strong>Lead Management</strong>
+                  </div>
+                </div>
+              </div>
+              <!-- Technical Skills -->
+              <div class="skills-showcase" data-aos="fade-up" data-aos-delay="350">
+                <h3>Technical Skills</h3>
+                <div class="skills-list">
+                  <div class="skill-item">
+                    <div class="skill-info">
+                      <span class="skill-name">Flutter & Dart</span>
+                      <span class="skill-percent">90%</span>
+                    </div>
+                    <div class="progress">
+                      <div class="progress-bar" style="width: 90%"></div>
+                    </div>
+                  </div>
+                  <div class="skill-item">
+                    <div class="skill-info">
+                      <span class="skill-name">Lead Management Systems</span>
+                      <span class="skill-percent">85%</span>
+                    </div>
+                    <div class="progress">
+                      <div class="progress-bar" style="width: 85%"></div>
+                    </div>
+                  </div>
+                  <div class="skill-item">
+                    <div class="skill-info">
+                      <span class="skill-name">Firebase & Backend Integration</span>
+                      <span class="skill-percent">80%</span>
+                    </div>
+                    <div class="progress">
+                      <div class="progress-bar" style="width: 80%"></div>
+                    </div>
+                  </div>
+                  <div class="skill-item">
+                    <div class="skill-info">
+                      <span class="skill-name">UI/UX Design</span>
+                      <span class="skill-percent">75%</span>
+                    </div>
+                    <div class="progress">
+                      <div class="progress-bar" style="width: 75%"></div>
+                    </div>
+                  </div>
+                  <div class="skill-item">
+                    <div class="skill-info">
+                      <span class="skill-name">REST API Integration</span>
+                      <span class="skill-percent">85%</span>
+                    </div>
+                    <div class="progress">
+                      <div class="progress-bar" style="width: 85%"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== FILE: Projects Section ===== -->
+    <section id="projects" class="projects">
+      <div class="container section-title" data-aos="fade-up">
+        <span class="subtitle">My Work</span>
+        <h2>Featured Projects</h2>
+        <p>Showcasing my expertise in Flutter development with real-world applications</p>
+      </div>
+      <div class="container" data-aos="fade-up" data-aos-delay="80">
+        <div class="projects-grid">
+          <!-- Project 1: Apna Lead -->
+          <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="project-image" style="background: linear-gradient(45deg, #1a237e, #283593);">
+              <div class="project-overlay">
+                <span style="color: white; font-weight: bold; font-size: 18px;">Lead Management System</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Apna Lead</h3>
+              <p class="project-description">
+                A comprehensive Lead Management & HR Tracking application designed for sales teams. 
+                Features include lead tracking, attendance management, performance analytics, and 
+                seamless communication tools for efficient sales operations.
+              </p>
+              <ul class="project-features">
+                <li>Real-time Lead Management System</li>
+                <li>HR Attendance & Performance Tracking</li>
+                <li>Sales Analytics Dashboard</li>
+                <li>Integrated Call & Communication Tools</li>
+                <li>Multi-role Access (Admin/HR/Sales)</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://play.google.com/store/apps/details?id=com.navixtechnologies.apna_lead" target="_blank" class="project-link">
+                  <i class="bi bi-google-play"></i> Google Play
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Project 2: Smart Realty -->
+          <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="project-image" style="background: linear-gradient(45deg, #0d47a1, #1565c0);">
+              <div class="project-overlay">
+                <span style="color: white; font-weight: bold; font-size: 18px;">Real Estate CRM</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Smart Realty</h3>
+              <p class="project-description">
+                Advanced Lead Management System for real estate with CRM integration. 
+                Features push notifications, sales tracking, lead analytics, and comprehensive 
+                admin dashboard for monitoring team performance and lead conversion metrics.
+              </p>
+              <ul class="project-features">
+                <li>CRM Integration with API</li>
+                <li>Push Notification System</li>
+                <li>Sales Performance Tracking</li>
+                <li>Admin Dashboard Analytics</li>
+                <li>Lead Conversion Reporting</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://play.google.com/store/apps/details?id=com.niveshian.apna_lead" target="_blank" class="project-link">
+                  <i class="bi bi-google-play"></i> Google Play
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Project 3: Euphorica Realty -->
+          <div class="project-card" data-aos="fade-up" data-aos-delay="250">
+            <div class="project-image" style="background: linear-gradient(45deg, #00695c, #00897b);">
+              <div class="project-overlay">
+                <span style="color: white; font-weight: bold; font-size: 18px;">Sales Tracking System</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Euphorica Realty</h3>
+              <p class="project-description">
+                Complete sales tracking and lead management solution with reception inventory 
+                management. Includes check-in/check-out systems, admin tracking records, and 
+                comprehensive sales monitoring for real estate businesses.
+              </p>
+              <ul class="project-features">
+                <li>Sales & Lead Tracking</li>
+                <li>Reception Inventory Management</li>
+                <li>Check-in/Check-out System</li>
+                <li>Admin Tracking & Records</li>
+                <li>Data Analytics Dashboard</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://play.google.com/store/apps/details?id=com.euphorica_realty.apna_lead" target="_blank" class="project-link">
+                  <i class="bi bi-google-play"></i> Google Play
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Project 4: The Real Health -->
+          <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="project-image" style="background: linear-gradient(45deg, #c2185b, #d81b60);">
+              <div class="project-overlay">
+                <span style="color: white; font-weight: bold; font-size: 18px;">Healthcare App</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">The Real Health</h3>
+              <p class="project-description">
+                Doctor appointment booking application designed for seamless healthcare management. 
+                Features include appointment scheduling, patient records, doctor profiles, and 
+                real-time notifications for appointments and reminders.
+              </p>
+              <ul class="project-features">
+                <li>Doctor Appointment Booking</li>
+                <li>Patient Records Management</li>
+                <li>Real-time Notifications</li>
+                <li>Doctor Profiles & Scheduling</li>
+                <li>Healthcare Analytics</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://github.com/Vikultyagitech/TRH" target="_blank" class="project-link">
+                  <i class="bi bi-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Project 5: E-Commerce App -->
+          <div class="project-card" data-aos="fade-up" data-aos-delay="350">
+            <div class="project-image" style="background: linear-gradient(45deg, #ff6f00, #ff8f00);">
+              <div class="project-overlay">
+                <span style="color: white; font-weight: bold; font-size: 18px;">E-Commerce Platform</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">E-Commerce Mobile App</h3>
+              <p class="project-description">
+                Full-featured e-commerce application with product catalog, shopping cart, 
+                payment integration, order tracking, and user management. Built with Flutter 
+                for cross-platform compatibility and optimal performance.
+              </p>
+              <ul class="project-features">
+                <li>Product Catalog & Search</li>
+                <li>Shopping Cart & Checkout</li>
+                <li>Payment Gateway Integration</li>
+                <li>Order Tracking System</li>
+                <li>User Account Management</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://github.com/vikul-1" target="_blank" class="project-link">
+                  <i class="bi bi-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== FILE: Contact Section ===== -->
+    <section id="contact" class="about" style="background: #141414;">
+      <div class="container section-title" data-aos="fade-up">
+        <span class="subtitle">Contact</span>
+        <h2>Get In Touch</h2>
+        <p>Let's discuss how I can help with your Flutter development needs</p>
+      </div>
+      <div class="container">
+        <div class="row gy-4 justify-content-center">
+          <div class="col-lg-4">
+            <div class="detail-item">
+              <i class="bi bi-geo-alt"></i>
+              <div class="detail-content">
+                <span>Location</span>
+                <strong>Sector 63, Noida, Uttar Pradesh</strong>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="detail-item">
+              <i class="bi bi-envelope"></i>
+              <div class="detail-content">
+                <span>Email</span>
+                <strong>vikultyagi745@gmail.com</strong>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="detail-item">
+              <i class="bi bi-phone"></i>
+              <div class="detail-content">
+                <span>Phone</span>
+                <strong>+91 7455000576</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col-12 text-center">
+            <a href="mailto:vikultyagi745@gmail.com" class="btn-primary"><i class="bi bi-envelope"></i> Send Email</a>
+            <a href="tel:+917455000576" class="btn-primary"><i class="bi bi-phone"></i> Call Now</a>
+          </div>
+        </div>
+        <!-- Social Media Links -->
+        <div class="row mt-4">
+          <div class="col-12">
+            <div class="social-links" style="justify-content: center;">
+              <a href="mailto:vikultyagi745@gmail.com" title="Email"><i class="bi bi-envelope"></i></a>
+              <a href="tel:+917455000576" title="Phone"><i class="bi bi-phone"></i></a>
+              <a href="https://www.linkedin.com/in/vikul-tyagi-82113a223/" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+              <a href="https://github.com/vikul-1" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- ===== FILE: Footer Section ===== -->
+  <footer class="footer">
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-6">
+          <h4>Vikul Tyagi</h4>
+          <p>Flutter Developer specializing in Lead Management applications. Passionate about creating efficient and user-friendly mobile solutions that help businesses grow.</p>
+          <div class="social-links d-flex mt-4">
+            <a href="mailto:vikultyagi745@gmail.com"><i class="bi bi-envelope"></i></a>
+            <a href="tel:+917455000576"><i class="bi bi-phone"></i></a>
+            <a href="https://www.linkedin.com/in/vikul-tyagi-82113a223/" target="_blank"><i class="bi bi-linkedin"></i></a>
+            <a href="https://github.com/vikul-1" target="_blank"><i class="bi bi-github"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-6 footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-6 footer-links">
+          <h4>Expertise</h4>
+          <ul>
+            <li><a href="#projects">Flutter Development</a></li>
+            <li><a href="#projects">Lead Management</a></li>
+            <li><a href="#projects">Mobile Apps</a></li>
+            <li><a href="#projects">UI/UX Design</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container copyright text-center mt-4">
+      <p>© 2024 <strong>Vikul Tyagi</strong> - All Rights Reserved</p>
+      <p style="font-size: 14px; color: rgba(255,255,255,0.5); margin-top: 10px;">Flutter Developer | Lead Management Specialist | Sector 63, Noida, UP</p>
+    </div>
+  </footer>
+  <!-- Scroll Top Button -->
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <!-- Vendor JS Files from CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <!-- ===== FILE: main.js - Custom JavaScript ===== -->
+  <script>
+    // Initialize AOS (Animate On Scroll)
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+    // Typing effect for hero section
+    const typedElement = document.querySelector('.typed');
+    const roles = ['Flutter Developer', 'Mobile App Developer', 'Lead Management Specialist'];
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    function type() {
+      const currentRole = roles[roleIndex];
+     
+      if (isDeleting) {
+        typedElement.textContent = currentRole.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typedElement.textContent = currentRole.substring(0, charIndex + 1);
+        charIndex++;
+      }
+      if (!isDeleting && charIndex === currentRole.length) {
+        setTimeout(() => isDeleting = true, 2000);
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+      }
+      setTimeout(type, isDeleting ? 50 : 100);
+    }
+    type();
+    // Scroll to top button functionality
+    let scrollTop = document.querySelector('.scroll-top');
+   
+    function toggleScrollTop() {
+      if (scrollTop) {
+        window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
+      }
+    }
+   
+    if (scrollTop) {
+      scrollTop.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    }
+   
+    window.addEventListener('load', toggleScrollTop);
+    document.addEventListener('scroll', toggleScrollTop);
+    // Active navigation link on scroll
+    const navLinks = document.querySelectorAll('.navmenu a');
+   
+    function updateActiveLink() {
+      navLinks.forEach(link => {
+        if (!link.hash) return;
+        const section = document.querySelector(link.hash);
+        if (!section) return;
+       
+        const position = window.scrollY + 200;
+        if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+        }
+      });
+    }
+   
+    window.addEventListener('load', updateActiveLink);
+    document.addEventListener('scroll', updateActiveLink);
+  </script>
+</body>
+</html>
